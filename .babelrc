@@ -1,0 +1,37 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": [
+                        "Chrome >= 52",
+                        "FireFox >= 44",
+                        "Safari >= 7",
+                        "Explorer 11",
+                        "last 4 Edge versions"
+                    ]
+                },
+                "useBuiltIns": "usage",
+                "corejs": 3
+            }
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "lodash",
+        "@babel/plugin-transform-runtime",
+        [
+            "babel-plugin-styled-components",
+            {
+                "ssr": false,
+                "minify": false,
+                "transpileTemplateLiterals": false
+            }
+        ],
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-export-default-from",
+        "@babel/plugin-proposal-export-namespace-from"
+    ]
+}
