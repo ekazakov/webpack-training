@@ -18,13 +18,14 @@ const HtmlWebpackConfig = {
 
 module.exports = {
     mode: 'development',
-    devtool: 'source-map',
+    devtool: false,
     entry: {
         app: path.resolve(__dirname, 'src/index.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.[hash].js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js',
         publicPath: '/'
     },
     module: {
@@ -56,17 +57,17 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     optimization: {
-        runtimeChunk: true
-        // splitChunks: {
-        //     chunks: 'all',
-        //     cacheGroups: {
-        //         vendors: {
-        //             test: /[\\/]node_modules[\\/]/,
-        //             reuseExistingChunk: true,
-        //             priority: -10
-        //         }
-        //     }
-        // }
+        runtimeChunk: true,
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    reuseExistingChunk: true,
+                    priority: -10
+                }
+            }
+        }
     },
     plugins: [
         // new HtmlWebpackPlugin(HtmlWebpackConfig),

@@ -1,16 +1,10 @@
 /* eslint-disable */
-
-import { Foo } from './Foo';
-import { check } from './utils';
-
-function foo() {
-    console.log('foo');
+class FooBar {
+    constructor(x) {
+        this.x = x;
+        this._set = new Set([1, 2, 3]);
+    }
 }
 
-if (check()) {
-    console.log('doo');
-    const foo = new Foo();
-    foo.do();
-}
-
-foo();
+const fooBar = new FooBar();
+console.log(fooBar);

@@ -4,13 +4,7 @@
             "@babel/preset-env",
             {
                 "targets": {
-                    "browsers": [
-                        "Chrome >= 52",
-                        "FireFox >= 44",
-                        "Safari >= 7",
-                        "Explorer 11",
-                        "last 4 Edge versions"
-                    ]
+                    "browsers": ["Explorer 10"]
                 },
                 "useBuiltIns": "usage",
                 "corejs": 3
@@ -20,7 +14,10 @@
     ],
     "plugins": [
         "lodash",
-        "@babel/plugin-transform-runtime",
+        [
+            "@babel/plugin-transform-runtime",
+            { "corejs": 3, "helpers": true, "regenerator": true, "useESModules": true }
+        ],
         [
             "babel-plugin-styled-components",
             {
